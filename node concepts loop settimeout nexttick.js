@@ -1,19 +1,19 @@
 for (let i = 0; i <= 10; i++){
-    // what happens from 0 to 3
-    // the call stack prints them
+    //What happens from 0 to 3
+    //The call stack prints them
     // like log 1 then 1 gets logged
-    // and the console.log(1)gets poped out of the call stack
+    // and the console.log(1)gets popped out of the call stack
     if (i === 4) {
-        // here 4 doesnt get printed directly
-        // call stack passes it to node apis
+        //Here 4 doesn't get printed directly
+        // call stack passes it to node APIs
         setTimeout(() => {
             console.log(i)
         })
         continue
     }
     if (i === 5) {
-        // here 5 doesnt get printed directly
-        // call stack passes it to node apis
+        //Here 5 doesn't get printed directly
+        // call stack passes it to node APIs
         process.nextTick(() => {
             console.log(i)
         })
@@ -22,8 +22,8 @@ for (let i = 0; i <= 10; i++){
     // call stack prints the rest
     console.log(i)
 }
-// then event loop find 2 events pending to get handled
-// micro tasks like promises are priotrized 
-// then after micro tasks comes macro tasks to be handled
-// note that micro tasks are handled in same event loop cycle
-// while macro tasks gets handled in the next cycle 
+//Then the event loop finds 2 events pending to get handled
+//Micro tasks like promises are prioritized 
+//Then after micro tasks come macro tasks to be handled
+//Note that micro-tasks are handled in the same event loop cycle
+// while macro tasks get handled in the next cycle 
