@@ -1,6 +1,6 @@
 console.log('start')
 
-//micro task 
+//micro task comes after nextTick
 const myPromise = new Promise((resolve,reject) => { 
     resolve('myPromise1')
 })
@@ -9,7 +9,7 @@ Promise.all([myPromise]).then((value) => {
     console.log(value[0])
 })
 
-//macro task
+//macro task comes at last after promises
 setTimeout(() => {
     console.log('timeout')
 })
