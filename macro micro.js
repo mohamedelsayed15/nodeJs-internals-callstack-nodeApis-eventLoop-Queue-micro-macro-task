@@ -1,22 +1,31 @@
-console.log('start')
+console.log('start ', 'callstack' )
 
-//micro task comes after nextTick
+//micro task 
 const myPromise = new Promise((resolve,reject) => { 
     resolve('myPromise1')
 })
 
+// 2
 Promise.all([myPromise]).then((value) => { 
-    console.log(value[0])
+    console.log(value[0],2)
 })
 
-//macro task comes at last after promises
+// 4
+// macro task
+setImmediate(()=>{
+    console.log('set immediate',4)
+})
+
+// 3
+//macro task
 setTimeout(() => {
-    console.log('timeout')
+    console.log('timeout',3)
 })
 
-//micro task prioritized
+//1
+//micro task prioritized  1
 process.nextTick(() => {
-    console.log('next tick')
+    console.log('next tick',1)
 })
 
-console.log('end')
+console.log('end','callstack')
